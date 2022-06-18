@@ -68,9 +68,6 @@ def extract_name_and_format(html_block):
 
 
 def main():
-
-
-
     test_url1 = 'https://seattle.eater.com/maps/best-new-restaurants-seattle-heatmap'
     test_url2 = 'https://seattle.eater.com/maps/pike-place-market-where-to-eat-seattle'
     soup = get_url_and_parse(test_url1)
