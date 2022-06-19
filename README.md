@@ -1,5 +1,7 @@
 # Andow Eater
 
+Web scraper for Eater articles
+
 ## Installation (mac)
 
 Setup python virtual env
