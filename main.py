@@ -85,6 +85,7 @@ def main():
 
     for i in dict_of_restaurants.items():
         print(i)
+        print('testing git cmd push')
 
 
 if __name__ == '__main__':
