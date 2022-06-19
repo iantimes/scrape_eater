@@ -63,13 +63,7 @@ def extract_name_and_format(html_block):
         # pass
 
 
-def main():
-    test_url1 = 'https://seattle.eater.com/maps/best-new-restaurants-seattle-heatmap'
-    test_url2 = 'https://seattle.eater.com/maps/pike-place-market-where-to-eat-seattle'
-    soup = get_url_and_parse(test_url1)
-    results = soup.find_all('section', class_='c-mapstack__card')
-    results_manicured = remove_extra_and_irrelevant(results)
-
+def generate_dict(results_manicured):
     dict_of_restaurants = {}
     for i in range(0, len(results_manicured)):
         try:
@@ -77,6 +71,17 @@ def main():
             dict_of_restaurants[name] = content
         except Exception as e:
             print(e)
+
+    return dict_of_restaurants
+
+
+def main():
+    test_url1 = 'https://seattle.eater.com/maps/best-new-restaurants-seattle-heatmap'
+    test_url2 = 'https://seattle.eater.com/maps/pike-place-market-where-to-eat-seattle'
+    soup = get_url_and_parse(test_url1)
+    results = soup.find_all('section', class_='c-mapstack__card')
+    results_manicured = remove_extra_and_irrelevant(results)
+    dict_of_restaurants = generate_dict(results_manicured)
 
     for i in dict_of_restaurants.items():
         print(i)
